@@ -95,6 +95,9 @@ ul.list-articles li {
     padding: 5px;
 }
 
+.content p{
+    max-width:900px;
+}
 
 footer{
     background-color: #716054;
