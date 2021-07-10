@@ -16,14 +16,10 @@
         <h2 class="m-3">Ингредиенты</h2>
         <div class="d-flex justify-content-between">
             <ul>
-                {% for p in products %}
-                <li>{{p.name}}</li>
-                {% endfor %}
+                <li>{{ingredients.am_id}}</li>
             </ul>
             <ul>
-               {% for a in amounts %}
-                <li>{{a.amount}}</li>
-                {% endfor %}
+                <li>{{ingredients.prod_id}}</li>
             </ul>
         </div>
     </div>
@@ -31,7 +27,7 @@
     <div>
         <h2 class="m-3">Этапы приготовления</h2>
         <ul>
-            <li class=""><p class="m-2">{{post.steps|linebreaks}}</p></li>
+            <p class="m-2">{{post.steps|linebreaks}}</p>
         </ul>
     </div>
 
