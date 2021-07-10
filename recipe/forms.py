@@ -12,7 +12,7 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Dish
-        fields = ['title', 'url', 'content', 'photo', 'cat', 'steps']
+        fields = ['title', 'slug', 'content', 'photo', 'cat', 'steps']
 
 
 class RegisterUserForm(UserCreationForm):
