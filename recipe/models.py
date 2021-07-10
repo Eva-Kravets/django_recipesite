@@ -48,6 +48,10 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product', kwargs={'prod_id': self.pk})
 
+    class Meta:
+        verbose_name = 'Продукты'
+        verbose_name_plural = 'Продукты'
+
 class Amount(models.Model):
     amount = models.CharField(max_length=100, db_index=True, verbose_name="Количество")
 
@@ -57,7 +61,12 @@ class Amount(models.Model):
     def get_absolute_url(self):
         return reverse('amount', kwargs={'am_id': self.pk})
 
+    class Meta:
+        verbose_name = 'Количество'
+        verbose_name_plural = 'Количество'
+
 class Ingredients(models.Model):
+    name = models.CharField(max_length=100, db_index=True, verbose_name="Название")
     am = models.ForeignKey('Amount', on_delete=models.PROTECT, verbose_name="Количество")
     prod = models.ForeignKey('Product', on_delete=models.PROTECT, verbose_name="Продукт")
 
@@ -66,6 +75,12 @@ class Ingredients(models.Model):
 
     def get_absolute_url(self):
         return reverse('ingredients', kwargs={'ingred_id': self.pk})
+
+    class Meta:
+        verbose_name = 'Ингредиенты'
+        verbose_name_plural = 'Ингредиенты'
+
+
 
 #class Step(models.Model):
 #   name = models.CharField(max_length=100, db_index=True, verbose_name="Номер шага")
