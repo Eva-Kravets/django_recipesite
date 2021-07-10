@@ -24,6 +24,10 @@ class AmountAdmin(admin.ModelAdmin):
     list_display = ('id', 'amount')
     list_display_links = ('id', 'amount')
 
+class IngredientsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'am_id', 'prod_id')
+    list_display_links = ('id',)
+
 #class StepAdmin(admin.ModelAdmin):
 #   list_display = ('id', 'name', 'content', 'dis')
 #   list_display_links = ('id', 'name', 'content', 'dis')
@@ -48,5 +52,6 @@ admin.site.register(Dish, DishAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Amount, AmountAdmin)
+admin.site.register(Ingredients, IngredientsAdmin)
 # admin.site.register(Step, StepAdmin)
 
