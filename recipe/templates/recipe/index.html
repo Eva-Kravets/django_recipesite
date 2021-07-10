@@ -1,0 +1,30 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+<div class="m-3">
+	<h1 class="bd-title text-center m-5" >Каталог рецептов</h1>
+	<ul class="list-articles m-4">
+		{% for p in posts %}
+				<li class="d-flex">
+					{% if p.photo %}
+					<p><img class="float-left p-4" width="300" src="{{p.photo.url}}"></p>
+					{% endif %}
+					<div class="m-3 w-100">
+						<h2 class="pt-3">{{p.title}}</h2>
+
+						{% autoescape on %}
+						{{p.content|linebreaks|truncatewords:50}}
+						{% endautoescape %}
+
+						<p class=" d-flex justify-content-end p-3 "><a class="p-3 btn btn-dark" href="{{ p.get_absolute_url }}">Перейти к рецепту →</a></p>
+				</div>
+				</li>
+		{% endfor %}
+	</ul>
+	</div>
+{% endblock %}
+{% block footer %}
+	<footer class="p-2 w-100 d-flex justify-content-between ">
+		<p class="m-3">Кравец Ева</p><p class="m-3"> Группа 201-322</p>
+	</footer>
+{% endblock %}

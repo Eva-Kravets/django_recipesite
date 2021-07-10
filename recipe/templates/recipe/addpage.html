@@ -1,0 +1,35 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+<div class="wrapper row0 p-5" style="background-image:url('../static/recipe/images/bg-2.jpg'); background-repeat: no-repeat; background-size:cover;">
+    <figure class="text-end p-5">
+        <blockquote class="blockquote text-dark ">
+             <p><i>Кулинария – это язык, с помощью которого можно передать гармонию, счастье, красоту, сложность, поэзию, волшебство, юмор, провокацию, культуру – в общем, все, из чего складывается наша жизнь.</i></p>
+        </blockquote>
+        <figcaption class="blockquote-footer text-dark">Шеф-повар Ферран Адриа</figcaption>
+    </figure>
+</div>
+
+ <h1 class="m-5 text-center">{{title}}</h1>
+
+ <div class="m-5 d-flex justify-content-center">
+  <form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-error">{{ form.non_field_errors }}</div>
+
+      {% for f in form %}
+        <p class="add_form"><label class="form-label mt-3  d-flex text-left" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+      {% endfor %}
+
+      <button type="submit" class="btn btn-dark w-100 ">Добавить</button>
+  </form>
+ </div>
+
+{% endblock %}
+{% block footer %}
+	<footer class="p-2 w-100 d-flex justify-content-between ">
+		<p class="m-3">Кравец Ева</p><p class="m-3"> Группа 201-322</p>
+	</footer>
+{% endblock %}

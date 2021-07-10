@@ -1,0 +1,18 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+ <h1 class="bd-title text-center m-5" >Идеи подачи</h1>
+<ul class="list-articles m-4">
+    {% for s in serving %}
+			<li class="d-flex flex-wrap">
+				<h2 class="pt-3">{{s.title}}</h2>
+				<p>{{s.content}}</p>
+            </li>
+	{% endfor %}
+</ul>
+{% endblock %}
+{% block footer %}
+	<footer class="p-2 w-100 d-flex justify-content-between ">
+		<p class="m-3">Кравец Ева</p><p class="m-3"> Группа 201-322</p>
+	</footer>
+{% endblock %}
